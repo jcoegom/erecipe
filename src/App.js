@@ -1,43 +1,55 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
+
 import placeholderImg from './placeholder.png'
+import Header from './components/search/header/Header'
 import { ReactComponent as ChevronLeft } from './chevron-left.svg'
 import { ReactComponent as ChevronRight } from './chevron-right.svg'
+import { handleError } from './utils/errors'
+import Errors from './components/common/Errors/Errors'
+import Loading from './components/common/loading/Loading'
+
+const defaultQueryState = { load: false, error: null, result: null }
 
 function App() {
-  const [searchResult, setSearchResult] = useState()
+  const [queryState, setQueryState] = useState(defaultQueryState)
 
   useEffect(() => {
-    const search = async () => {
+    search()
+  }, [])
+
+  const search = async () => {
+    try {
+      setQueryState({ load: true, error: null, result: null })
       const response = await fetch(
         'http://www.omdbapi.com/?apikey=a461e386&s=king',
       )
-
       const data = await response.json()
-
-      if (!searchResult) {
-        setSearchResult(data)
-      }
+      setQueryState({ load: false, error: null, result: data })
+    } catch (err) {
+      let e = handleError(err)
+      setQueryState({ load: false, error: e, result: null })
     }
-
-    search()
-  })
+  }
 
   return (
     <div className="App">
-      <div className="search">
-        <input type="text" placeholder="Search..." />
-        <button>Search</button>
-      </div>
-      {!searchResult ? (
+      <Header actions={<button>Search</button>} />
+
+      <Loading show={queryState.load}>
         <p>No results yet</p>
-      ) : (
-        <div className="search-results">
-          <div className="chevron">
-            <ChevronLeft />
-          </div>
-          <div className="search-results-list">
-            {searchResult.Search.map(result => (
+      </Loading>
+      <Errors show={queryState.error}>
+        <p>An error has occurred</p>
+      </Errors>
+
+      <div className="search-results">
+        <div className="chevron">
+          <ChevronLeft />
+        </div>
+        <div className="search-results-list">
+          {queryState?.result &&
+            queryState.result.Search.map(result => (
               <div key={result.imdbID} className="search-item">
                 <img
                   src={result.Poster === 'N/A' ? placeholderImg : result.Poster}
@@ -49,12 +61,11 @@ function App() {
                 </div>
               </div>
             ))}
-          </div>
-          <div className="chevron">
-            <ChevronRight />
-          </div>
         </div>
-      )}
+        <div className="chevron">
+          <ChevronRight />
+        </div>
+      </div>
     </div>
   )
 }
