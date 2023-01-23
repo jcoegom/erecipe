@@ -5,12 +5,12 @@ import { ReactComponent as ChevronRight } from '../../../assets/chevron-right.sv
 const Pagination = ({ children, onClick }) => {
   return (
     <>
-      <div onClick={e => onClick('dec')} className="chevron">
-        <ChevronLeft />
+      <div className="chevron">
+        <ChevronLeft onClick={e => onClick('dec')} />
       </div>
       {children}
-      <div onClick={e => onClick('inc')} className="chevron">
-        <ChevronRight />
+      <div className="chevron">
+        <ChevronRight onClick={e => onClick('inc')} />
       </div>
     </>
   )

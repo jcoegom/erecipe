@@ -14,7 +14,7 @@ const defaultQueryState = { load: false, error: null, result: null }
 
 function App() {
   const [queryState, setQueryState] = useState(defaultQueryState)
-  const [textToSearch, setTextToSearch] = useState('')
+  const [textToSearch, setTextToSearch] = useState('king')
   const [page, setPage] = useState(1)
 
   const search = async query => {
@@ -40,11 +40,9 @@ function App() {
   }
   const handleClickPagination = data => {
     if (data === 'inc') {
-      search(`s=${textToSearch}&page=${page + 1}`)
       setPage(prevPage => prevPage + 1)
     }
     if (data === 'dec' && page > 1) {
-      search(`s=${textToSearch}&page=${page - 1}`)
       setPage(prevPage => prevPage - 1)
     }
   }
@@ -55,8 +53,8 @@ function App() {
   }
 
   useEffect(() => {
-    search('s=king')
-  }, [])
+    search(`s=${textToSearch}&page=${page}`)
+  }, [page])
 
   return (
     <div className="App">
