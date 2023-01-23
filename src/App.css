@@ -4,12 +4,6 @@
   grid-template-columns: 25% 50% 25%;
 }
 
-.search-results .chevron {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .search-results-list {
   width: 100%;
   display: grid;
