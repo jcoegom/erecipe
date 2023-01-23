@@ -24,6 +24,9 @@ function App() {
         `http://www.omdbapi.com/?apikey=a461e386&${query}`,
       )
       const data = await response.json()
+      if (!!data.Error) {
+        throw data
+      }
       setQueryState({ load: false, error: null, result: data })
     } catch (err) {
       setPage(1)
@@ -67,12 +70,8 @@ function App() {
         <p>No results yet</p>
       </Loading>
 
-      <Errors show={!!queryState.error || !!queryState?.result?.Error}>
-        {!!!!queryState?.result?.Error ? (
-          <p>{queryState?.result?.Error}</p>
-        ) : (
-          <p>An error has occurred</p>
-        )}
+      <Errors show={!!queryState.error}>
+        <p>{queryState?.error}</p>
       </Errors>
 
       <Body show={!!queryState?.result?.Search}>
