@@ -2,14 +2,14 @@ import './Pagination.css'
 import { ReactComponent as ChevronLeft } from '../../../assets/chevron-left.svg'
 import { ReactComponent as ChevronRight } from '../../../assets/chevron-right.svg'
 
-const Pagination = ({ children }) => {
+const Pagination = ({ children, onClick }) => {
   return (
     <>
-      <div className="chevron">
+      <div onClick={e => onClick('dec')} className="chevron">
         <ChevronLeft />
       </div>
       {children}
-      <div className="chevron">
+      <div onClick={e => onClick('inc')} className="chevron">
         <ChevronRight />
       </div>
     </>
