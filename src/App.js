@@ -7,6 +7,7 @@ import Errors from './components/common/Errors/Errors'
 import Loading from './components/common/loading/Loading'
 import Pagination from './components/common/pagination/Pagination'
 import Card from './components/search/card/Card'
+import CardContainer from './components/search/card/CardContainer'
 
 const defaultQueryState = { load: false, error: null, result: null }
 
@@ -44,7 +45,7 @@ function App() {
 
       <div className="search-results">
         <Pagination>
-          <div className="search-results-list">
+          <CardContainer>
             {queryState?.result &&
               queryState.result.Search.map(result => (
                 <Card
@@ -56,7 +57,7 @@ function App() {
                   Year={result.Year}
                 />
               ))}
-          </div>
+          </CardContainer>
         </Pagination>
       </div>
     </div>

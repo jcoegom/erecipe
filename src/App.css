@@ -3,9 +3,3 @@
   display: grid;
   grid-template-columns: 25% 50% 25%;
 }
-
-.search-results-list {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-}
