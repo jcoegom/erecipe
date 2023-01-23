@@ -1,3 +1,4 @@
+import './Card.css'
 const CardContainer = ({ children }) => {
   return <div className="search-results-list">{children}</div>
 }
