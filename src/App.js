@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 
-import placeholderImg from './placeholder.png'
 import Header from './components/search/header/Header'
 import { handleError } from './utils/errors'
 import Errors from './components/common/Errors/Errors'
 import Loading from './components/common/loading/Loading'
 import Pagination from './components/common/pagination/Pagination'
+import Card from './components/search/card/Card'
 
 const defaultQueryState = { load: false, error: null, result: null }
 
@@ -47,18 +47,14 @@ function App() {
           <div className="search-results-list">
             {queryState?.result &&
               queryState.result.Search.map(result => (
-                <div key={result.imdbID} className="search-item">
-                  <img
-                    src={
-                      result.Poster === 'N/A' ? placeholderImg : result.Poster
-                    }
-                    alt="poster"
-                  />
-                  <div className="search-item-data">
-                    <div className="title">{result.Title}</div>
-                    <div className="meta">{`${result.Type} | ${result.Year}`}</div>
-                  </div>
-                </div>
+                <Card
+                  imdbID={result.imdbID}
+                  key={result.imdbID}
+                  Poster={result.Poster}
+                  Title={result.Title}
+                  Type={result.Type}
+                  Year={result.Year}
+                />
               ))}
           </div>
         </Pagination>
