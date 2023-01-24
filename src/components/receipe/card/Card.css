@@ -1,0 +1,44 @@
+.search-item {
+  border-radius: 5px;
+  background-color: #f1faee;
+  color: #e63946;
+  margin: 20px;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  justify-content: center;
+  width: 280px;
+}
+
+.search-item img {
+  width: 110px;
+  height: 82px;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.search-item .search-item-data {
+  padding-top: 10px;
+  padding-left: 7px;
+  text-align: center;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.search-item .search-item-data .title {
+  color: #457b9d;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.search-item .search-item-data .meta {
+  font-size: 14px;
+  color: #47525d;
+}
+
+/*CardContainer*/
+.card-container-main {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+}
