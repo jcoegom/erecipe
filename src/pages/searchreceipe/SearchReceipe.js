@@ -45,15 +45,30 @@ const SearchReceipe = ({ operation }) => {
     searchData(query)
   }
 
-  useEffect(() => {}, [])
-
-  console.log('store', store)
+  useEffect(() => {
+    if (
+      operation === 'refresh' ||
+      !store.receipes ||
+      store.receipes.length === 0
+    ) {
+      let query = 'recipes/'
+      if (inputSearchRef.current.value) {
+        query += `?ingredient=${store.textToSearch}`
+      }
+      searchData(query)
+    }
+  }, [])
 
   return (
     <div>
       <HeaderSearch
         content={
-          <input ref={inputSearchRef} type="text" placeholder="Search..." />
+          <input
+            defaultValue={store.textToSearch}
+            ref={inputSearchRef}
+            type="text"
+            placeholder="Search..."
+          />
         }
         actions={<button onClick={_e => handleClickSearch()}>Search</button>}
       />
