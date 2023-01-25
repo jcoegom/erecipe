@@ -1,9 +1,9 @@
 import './Card.css'
 import noImage from '../../../assets/noImage.jpg'
 
-const Card = ({ srcImg, name, numIngredients }) => {
+const Card = ({ id, srcImg, name, numIngredients, onClick = () => {} }) => {
   return (
-    <div className="search-item">
+    <div onClick={_e => onClick(id)} className="search-item">
       <div className="card-search-image">
         <img src={srcImg ? srcImg : noImage} alt={name} />
       </div>
