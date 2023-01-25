@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useRef } from 'react'
 import { StoreContext } from '../../components/common/providers/store/StoreProvider'
 import HeaderSearch from '../../components/receipe/search/HeaderSearch'
 import Card from '../../components/receipe/card/Card'
@@ -8,7 +8,7 @@ import { handleError } from '../../utils/errors'
 import configApi from '../../config/api.json'
 import Loading from '../../components/common/loading/Loading'
 import Errors from '../../components/common/Errors/Errors'
-import { useRef } from 'react'
+import axios from 'axios'
 
 const defaultQueryState = {
   load: false,
@@ -25,11 +25,10 @@ const SearchReceipe = ({ operation }) => {
     try {
       setQueryState({ load: true, error: null })
       setReceipes(null)
-      const response = await fetch(`${configApi.url}/${query}`)
-      const data = await response.json()
+      const response = await axios.get(`${configApi.url}/${query}`)
 
       setQueryState({ load: false, error: null })
-      setReceipes(data)
+      setReceipes(response.data)
     } catch (err) {
       let e = handleError(err)
       setQueryState({ load: false, error: e })

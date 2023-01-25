@@ -80,7 +80,9 @@ app.get('/recipes', (req, res) => {
     return res.json(recipes)
   }
   const filteredRecipes = recipes.filter(r =>
-    r.ingredients.some(ing => ing.name === ingredient),
+    r.ingredients.some(
+      ing => ing.name.toLowerCase().indexOf(ingredient.toLowerCase()) != -1,
+    ),
   )
   if (!filteredRecipes.length)
     return res
