@@ -1,7 +1,9 @@
 import './Card.css'
 
-const CardContainer = ({ children }) => {
-  return <div className="card-container-main">{children}</div>
+const CardContainer = ({ children, show }) => {
+  return (
+    <>{show ? <div className="card-container-main">{children}</div> : null}</>
+  )
 }
 
 export default CardContainer

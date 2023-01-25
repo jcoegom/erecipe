@@ -4,7 +4,7 @@ import noImage from '../../../assets/noImage.jpg'
 const Card = ({ srcImg, name, numIngredients }) => {
   return (
     <div className="search-item">
-      <div>
+      <div className="card-search-image">
         <img src={srcImg ? srcImg : noImage} alt={name} />
       </div>
       <div className="search-item-data">

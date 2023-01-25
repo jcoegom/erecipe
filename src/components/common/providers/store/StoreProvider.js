@@ -32,9 +32,7 @@ const StoreProvider = props => {
   }
 
   return (
-    <StoreContext.Provider
-      value={[store, dispatchStore, { setReceipes, addReceipe }]}
-    >
+    <StoreContext.Provider value={[store, { setReceipes, addReceipe }]}>
       {props.children}
     </StoreContext.Provider>
   )
