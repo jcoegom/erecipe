@@ -26,39 +26,38 @@ let recipes = [
   },
   {
     id: 2,
-    name: 'Recipe 2',
+    name: 'Bittman Chinese Chicken With Bok Choy',
     ingredients: [
       {
-        name: 'chicken',
-        amount: 4,
-        unit: 'pieces',
+        name: 'Chicken Breast',
+        amount: 2,
+        unit: 'units',
       },
       {
-        name: 'potatoes',
-        amount: 8,
-        unit: 'pieces',
+        name: 'Bok Choy',
+        amount: 1,
+        unit: 'units',
+      },
+      {
+        name: 'Sauce',
+        amount: 1,
+        unit: 'deciliters',
       },
     ],
     instructions:
-      'Cook the chicken and potatoes together in a pot for 30 minutes.',
+      'Make sauce. Steam bok choy and chicken. Carry on steaming. Pour sauce over.',
   },
   {
     id: 3,
-    name: 'Recipe 3',
+    name: "Brogrammer's Dream",
     ingredients: [
       {
-        name: 'beef',
-        amount: 500,
-        unit: 'grams',
-      },
-      {
-        name: 'onions',
-        amount: 2,
-        unit: 'pieces',
+        name: 'Pizza',
+        amount: 1,
+        unit: 'units',
       },
     ],
-    instructions:
-      'Fry the beef in a pan until cooked through. Add sliced onions and cook for an additional 5 minutes.',
+    instructions: 'Order a pizza, delivered. Preferably your favorite. Eat it.',
   },
 ]
 

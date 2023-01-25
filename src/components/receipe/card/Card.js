@@ -9,7 +9,7 @@ const Card = ({ id, srcImg, name, numIngredients, onClick = () => {} }) => {
       </div>
       <div className="search-item-data">
         <div className="title">{name}</div>
-        <div className="meta">{`(${numIngredients} Ingredients.)`}</div>
+        <div className="meta">{`(${numIngredients} Ingredients)`}</div>
       </div>
     </div>
   )

@@ -65,6 +65,15 @@ const SearchReceipe = ({ operation }) => {
         <p>{queryState?.error}</p>
       </Errors>
       <CardContainer show={!!store.receipes}>
+        {store.receipes &&
+          store.receipes.map(receipe => (
+            <Card
+              key={receipe.id}
+              srcImg={receipe.url}
+              name={receipe.name}
+              numIngredients={receipe.ingredients.length}
+            />
+          ))}
         <Card srcImg={''} name={'Name of receipe'} numIngredients={'4'} />
         <Card srcImg={''} name={'Name of receipe'} numIngredients={'4'} />
       </CardContainer>
