@@ -74,8 +74,6 @@ const SearchReceipe = ({ operation }) => {
               numIngredients={receipe.ingredients.length}
             />
           ))}
-        <Card srcImg={''} name={'Name of receipe'} numIngredients={'4'} />
-        <Card srcImg={''} name={'Name of receipe'} numIngredients={'4'} />
       </CardContainer>
     </div>
   )
