@@ -11,6 +11,8 @@ import configApi from '../../config/api.json'
 import Loading from '../../components/common/loading/Loading'
 import Errors from '../../components/common/Errors/Errors'
 
+import './SearchReceipe.css'
+
 const defaultQueryState = {
   load: false,
   error: null,
@@ -61,39 +63,44 @@ const SearchReceipe = ({ operation }) => {
   }, [])
 
   return (
-    <div>
-      <HeaderSearch
-        content={
-          <input
-            defaultValue={store.textToSearch}
-            ref={inputSearchRef}
-            type="text"
-            placeholder="Search..."
-          />
-        }
-        actions={<button onClick={_e => handleClickSearch()}>Search</button>}
-      />
-      <Loading show={queryState.load}>
-        <p>No results yet</p>
-      </Loading>
-
-      <Errors show={!!queryState.error}>
-        <p>{queryState?.error}</p>
-      </Errors>
-      <CardContainer show={!!store.receipes}>
-        {store.receipes &&
-          store.receipes.map(receipe => (
-            <Card
-              key={receipe.id}
-              id={receipe.id}
-              srcImg={receipe.url}
-              name={receipe.name}
-              numIngredients={receipe.ingredients.length}
-              onClick={id => navigate(`/receipe-details/${id}`)}
+    <>
+      <div className="search-create-new">
+        <button onClick={_e => navigate('/new-receipe')}>+Create New</button>
+      </div>
+      <div>
+        <HeaderSearch
+          content={
+            <input
+              defaultValue={store.textToSearch}
+              ref={inputSearchRef}
+              type="text"
+              placeholder="Search..."
             />
-          ))}
-      </CardContainer>
-    </div>
+          }
+          actions={<button onClick={_e => handleClickSearch()}>Search</button>}
+        />
+        <Loading show={queryState.load}>
+          <p>No results yet</p>
+        </Loading>
+
+        <Errors show={!!queryState.error}>
+          <p>{queryState?.error}</p>
+        </Errors>
+        <CardContainer show={!!store.receipes}>
+          {store.receipes &&
+            store.receipes.map(receipe => (
+              <Card
+                key={receipe.id}
+                id={receipe.id}
+                srcImg={receipe.url}
+                name={receipe.name}
+                numIngredients={receipe.ingredients.length}
+                onClick={id => navigate(`/receipe-details/${id}`)}
+              />
+            ))}
+        </CardContainer>
+      </div>
+    </>
   )
 }
 
