@@ -1,4 +1,6 @@
 import { useContext, useState, useRef } from 'react'
+import { navigate } from '@reach/router'
+import axios from 'axios'
 import { StoreContext } from '../../components/common/providers/store/StoreProvider'
 import HeaderSearch from '../../components/receipe/search/HeaderSearch'
 import Card from '../../components/receipe/card/Card'
@@ -8,7 +10,6 @@ import { handleError } from '../../utils/errors'
 import configApi from '../../config/api.json'
 import Loading from '../../components/common/loading/Loading'
 import Errors from '../../components/common/Errors/Errors'
-import axios from 'axios'
 
 const defaultQueryState = {
   load: false,
@@ -84,9 +85,11 @@ const SearchReceipe = ({ operation }) => {
           store.receipes.map(receipe => (
             <Card
               key={receipe.id}
+              id={receipe.id}
               srcImg={receipe.url}
               name={receipe.name}
               numIngredients={receipe.ingredients.length}
+              onClick={id => navigate(`/receipe-details/${id}`)}
             />
           ))}
       </CardContainer>

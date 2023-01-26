@@ -1,0 +1,4 @@
+.ingredientsrow-main {
+  display: grid;
+  grid-template-columns: 60% 25% 15%;
+}
