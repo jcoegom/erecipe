@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 8000
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 app.use(bodyParser.json())
 
@@ -62,7 +63,7 @@ let recipes = [
 ]
 
 //CORS
-app.use(function (req, res, next) {
+/* app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header(
     'Access-Control-Allow-Headers',
@@ -70,7 +71,9 @@ app.use(function (req, res, next) {
   )
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
   next()
-})
+}) */
+
+app.use(cors())
 
 // GET
 app.get('/recipes', (req, res) => {
@@ -103,17 +106,22 @@ app.get('/recipes/:id', (req, res) => {
 // POST recipe
 app.post('/recipes', (req, res) => {
   // create new recipe object from the data in the request body
-  const newRecipe = {
-    id: req.body.id,
-    name: req.body.name,
-    ingredients: req.body.ingredients,
-    instructions: req.body.instructions,
+  try {
+    const id = String(Math.round(Math.random() * 100000))
+    const newRecipe = {
+      id,
+      name: req.body.name,
+      ingredients: req.body.ingredients,
+      instructions: req.body.instructions,
+    }
+
+    // add new recipe to the array
+    recipes.push(newRecipe)
+
+    res.json(newRecipe)
+  } catch (err) {
+    res.status(500).json({ message: 'Error saving recipe' })
   }
-
-  // add new recipe to the array
-  recipes.push(newRecipe)
-
-  res.json(newRecipe)
 })
 
 app.listen(port, () => {

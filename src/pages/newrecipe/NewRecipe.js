@@ -5,7 +5,10 @@ import { useState } from 'react'
 import IngredientsRowEditable from '../../components/receipe/new/IngredientsRowEditable'
 import { validateNewIngredient } from './validations'
 import { createId } from '../../utils/common'
-import ReceipeDetails from '../detailsreceipe/ReceipeDetails'
+import axios from 'axios'
+import configApi from '../../config/api.json'
+import { handleError } from '../../utils/errors'
+import Feedback from '../../components/common/Feedback/Feedback'
 
 const defaultRecipe = {
   name: '',
@@ -20,9 +23,15 @@ const defaultIngredient = {
   errorMsg: '',
 }
 
+const defaultFeedback = {
+  state: '',
+  message: '',
+}
+
 const NewRecipe = () => {
   const [recipe, setRecipe] = useState(defaultRecipe)
   const [ingredient, setIngredient] = useState(defaultIngredient)
+  const [feedback, setFeedback] = useState(defaultFeedback)
 
   const handleChangeData = ({ name, value }) => {
     setRecipe(prevRecipe => ({ ...prevRecipe, [name]: value }))
@@ -62,8 +71,36 @@ const NewRecipe = () => {
     }
   }
 
+  const handleClickSave = async () => {
+    try {
+      setFeedback({ state: 'load', message: 'Operation in progress...' })
+      let cleanedIngredients = recipe.ingredients.map(ing => {
+        let { id, errorMsg, ...restIng } = ing
+        return restIng
+      })
+      await axios.post(`${configApi.url}/recipes`, {
+        ...recipe,
+        ingredients: cleanedIngredients,
+      })
+      setRecipe(defaultRecipe)
+      setFeedback({
+        state: 'success',
+        message: 'Operation finished successfully!',
+      })
+    } catch (err) {
+      handleError(err)
+      setFeedback({
+        state: 'error',
+        message: 'An error has ocurred! Please try again!',
+      })
+    }
+  }
+
+  console.log('RecipeIng', recipe.ingredients)
+
   return (
     <div className="newrecipe-main">
+      <Feedback type={feedback.state} message={feedback.message} />
       <EditableRecipe
         ingredients={recipe.ingredients}
         name={recipe.name}
@@ -81,7 +118,7 @@ const NewRecipe = () => {
           />
         }
       />
-      <button>SAVE</button>
+      <button onClick={_e => handleClickSave()}>SAVE</button>
       <button onClick={e => navigate('/search-receipe/refresh')}>BACK</button>
     </div>
   )
