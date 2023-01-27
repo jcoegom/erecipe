@@ -2,6 +2,7 @@ import './EditableRecipe.css'
 
 import IngredientsRowEditable from './IngredientsRowEditable'
 import IngredientsRow from '../details/IngredientsRow'
+import Ingredients from '../details/Ingredients'
 
 const EditableRecipe = ({
   ingredients,
@@ -22,11 +23,13 @@ const EditableRecipe = ({
       />
       {ingredientsEditable}
       <IngredientsRow
+        className="ingredientsrow-header"
         name={'Name'}
         amount={'Amount'}
         unit={'Unit'}
-        actions={'Delete'}
+        actions={'Actions'}
       />
+
       {ingredients &&
         ingredients.map(ing => (
           <IngredientsRow
@@ -47,6 +50,7 @@ const EditableRecipe = ({
         name="textarea"
         rows="5"
         cols="50"
+        style={{ width: '100%', marginTop: '22px', marginBottom: '15px' }}
         onChange={e =>
           onChange({ name: 'instructions', value: e.target.value })
         }

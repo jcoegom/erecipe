@@ -8,6 +8,8 @@
   color: red;
   grid-column: 1/4;
   text-align: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .editablerecipe-name-recipe {
@@ -21,6 +23,8 @@
 }
 .ingredientsroweditable-add-button {
   width: 150px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .ingredientsroweditable-ingredients-title {

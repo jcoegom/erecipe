@@ -118,8 +118,15 @@ const NewRecipe = () => {
           />
         }
       />
-      <button onClick={_e => handleClickSave()}>SAVE</button>
-      <button onClick={e => navigate('/search-receipe/refresh')}>BACK</button>
+      <button className="newreceipe-save" onClick={_e => handleClickSave()}>
+        SAVE
+      </button>
+      <button
+        className="newreceipe-back"
+        onClick={e => navigate('/search-receipe/refresh')}
+      >
+        BACK
+      </button>
     </div>
   )
 }

@@ -1,9 +1,20 @@
 .newrecipe-main {
   width: 600px;
-  background-color: grey;
+  background-color: #e3eced;
   padding: 10px;
   border-radius: 7px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.newreceipe-save {
+  margin-bottom: 10px;
+}
+.newreceipe-back {
+  border: 1px solid #1d3557;
+  color: #1d3557;
+  background-color: white;
+  font-size: 24px;
+  border-radius: 5px 5px 5px 5px;
 }

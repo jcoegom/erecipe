@@ -1,5 +1,4 @@
 const IngredientsRow = ({ className = '', name, amount, unit, actions }) => {
-  console.log('name-amount-unit', name, amount, unit)
   return (
     <div
       className={`${
@@ -13,7 +12,7 @@ const IngredientsRow = ({ className = '', name, amount, unit, actions }) => {
       <div className="ingredientsrow-item ingredientsrow-item-border">
         {unit}
       </div>
-      {actions && <div>{actions}</div>}
+      {actions && <div className="ingredientsrow-item-border">{actions}</div>}
     </div>
   )
 }
