@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8000
+const port = 8080
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
@@ -61,17 +61,6 @@ let recipes = [
     instructions: 'Order a pizza, delivered. Preferably your favorite. Eat it.',
   },
 ]
-
-//CORS
-/* app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept,Authorization',
-  )
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
-  next()
-}) */
 
 app.use(cors())
 
