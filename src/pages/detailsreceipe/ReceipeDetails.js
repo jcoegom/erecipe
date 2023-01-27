@@ -67,7 +67,14 @@ const ReceipeDetails = ({ id, operation }) => {
   }, [])
 
   return (
-    <>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <div className="receipe-details-main">
         <div className="receipe-details-content">
           <div className="recipe-details-name">
@@ -79,10 +86,12 @@ const ReceipeDetails = ({ id, operation }) => {
           <div className="recipe-details-instructions">
             {store.selectedReceipe?.instructions}
           </div>
+          <div style={{ textAlign: 'center', marginTop: '25px' }}>
+            <button onClick={_e => navigate('/search-receipe')}>Back</button>
+          </div>
         </div>
       </div>
-      <button onClick={_e => navigate('/search-receipe')}>Back</button>
-    </>
+    </div>
   )
 }
 
