@@ -17,3 +17,7 @@ button {
   font-size: 24px;
   border-radius: 5px 5px 5px 5px;
 }
+
+button:hover {
+  cursor: pointer;
+}

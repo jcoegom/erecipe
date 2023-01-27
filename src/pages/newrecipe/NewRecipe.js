@@ -97,15 +97,7 @@ const NewRecipe = () => {
   }
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingTop: '30px',
-      }}
-    >
+    <div className="newreceipe-wrapper">
       <div className="newrecipe-main">
         <Feedback type={feedback.state} message={feedback.message} />
         <EditableRecipe
