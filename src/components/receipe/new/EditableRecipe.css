@@ -2,9 +2,30 @@
   border: 1px solid grey;
   display: grid;
   grid-template-columns: auto auto auto;
-  padding: 20px;
 }
 
 .ingredientsroweditable-main-error {
   color: red;
+  grid-column: 1/4;
+  text-align: center;
+}
+
+.editablerecipe-name-recipe {
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 1.25em;
+}
+.ingredientsroweditable-add-button-wrapper {
+  grid-column: 1/4;
+  text-align: center;
+}
+.ingredientsroweditable-add-button {
+  width: 150px;
+}
+
+.ingredientsroweditable-ingredients-title {
+  grid-column: 1/4;
+  margin-bottom: 7px;
+  text-align: center;
+  font-weight: bold;
 }

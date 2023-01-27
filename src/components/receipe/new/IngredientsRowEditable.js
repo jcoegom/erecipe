@@ -8,6 +8,13 @@ const IngredientsRowEditable = ({
 }) => {
   return (
     <div className={`ingredientsroweditable-main`}>
+      <div className="ingredientsroweditable-ingredients-title">
+        Ingredients:
+      </div>
+      <div>Name</div>
+      <div>Amount</div>
+      <div>Units</div>
+
       <div>
         <input
           placeholder="name"
@@ -35,7 +42,14 @@ const IngredientsRowEditable = ({
       {errorMsg && (
         <div className="ingredientsroweditable-main-error">{errorMsg}</div>
       )}
-      <button onClick={_e => onClick('add')}>Add</button>
+      <div className="ingredientsroweditable-add-button-wrapper">
+        <button
+          className="ingredientsroweditable-add-button"
+          onClick={_e => onClick('add')}
+        >
+          Add
+        </button>
+      </div>
     </div>
   )
 }

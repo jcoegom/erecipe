@@ -14,12 +14,19 @@ const EditableRecipe = ({
   return (
     <div className="editable-receipe-main">
       <input
+        className="editablerecipe-name-recipe"
         placeholder="name of the recipe"
         type="text"
         value={name}
         onChange={e => onChange({ name: 'name', value: e.target.value })}
       />
       {ingredientsEditable}
+      <IngredientsRow
+        name={'Name'}
+        amount={'Amount'}
+        unit={'Unit'}
+        actions={'Delete'}
+      />
       {ingredients &&
         ingredients.map(ing => (
           <IngredientsRow
@@ -28,7 +35,7 @@ const EditableRecipe = ({
             unit={ing.unit}
             actions={
               <button onClick={_e => onClick({ action: 'del', value: ing.id })}>
-                DEL
+                X
               </button>
             }
           />

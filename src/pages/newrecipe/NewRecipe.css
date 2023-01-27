@@ -1,4 +1,9 @@
 .newrecipe-main {
-  width: 400px;
+  width: 600px;
   background-color: grey;
+  padding: 10px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
