@@ -96,37 +96,45 @@ const NewRecipe = () => {
     }
   }
 
-  console.log('RecipeIng', recipe.ingredients)
-
   return (
-    <div className="newrecipe-main">
-      <Feedback type={feedback.state} message={feedback.message} />
-      <EditableRecipe
-        ingredients={recipe.ingredients}
-        name={recipe.name}
-        instructions={recipe.instructions}
-        onClick={handleOnClickEditable}
-        onChange={handleChangeData}
-        ingredientsEditable={
-          <IngredientsRowEditable
-            name={ingredient.name}
-            amount={ingredient.amount}
-            unit={ingredient.unit}
-            errorMsg={ingredient.errorMsg}
-            onChange={handleChangeIngredient}
-            onClick={handleClikNewIng}
-          />
-        }
-      />
-      <button className="newreceipe-save" onClick={_e => handleClickSave()}>
-        SAVE
-      </button>
-      <button
-        className="newreceipe-back"
-        onClick={e => navigate('/search-receipe/refresh')}
-      >
-        BACK
-      </button>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: '30px',
+      }}
+    >
+      <div className="newrecipe-main">
+        <Feedback type={feedback.state} message={feedback.message} />
+        <EditableRecipe
+          ingredients={recipe.ingredients}
+          name={recipe.name}
+          instructions={recipe.instructions}
+          onClick={handleOnClickEditable}
+          onChange={handleChangeData}
+          ingredientsEditable={
+            <IngredientsRowEditable
+              name={ingredient.name}
+              amount={ingredient.amount}
+              unit={ingredient.unit}
+              errorMsg={ingredient.errorMsg}
+              onChange={handleChangeIngredient}
+              onClick={handleClikNewIng}
+            />
+          }
+        />
+        <button className="newreceipe-save" onClick={_e => handleClickSave()}>
+          SAVE
+        </button>
+        <button
+          className="newreceipe-back"
+          onClick={e => navigate('/search-receipe/refresh')}
+        >
+          BACK
+        </button>
+      </div>
     </div>
   )
 }

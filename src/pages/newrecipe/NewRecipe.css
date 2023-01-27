@@ -1,11 +1,13 @@
 .newrecipe-main {
   width: 600px;
   background-color: #e3eced;
-  padding: 10px;
+  padding: 25px;
   border-radius: 7px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.newreceipe-content {
 }
 
 .newreceipe-save {
