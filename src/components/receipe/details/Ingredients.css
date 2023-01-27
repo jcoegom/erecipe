@@ -1,9 +1,17 @@
 .ingredientsrow-main {
   display: grid;
-  grid-template-columns: 60% 25% 15%;
+  grid-template-columns: 100px 100px 100px;
 }
 
 .ingredientsrow-main-actions {
   display: grid;
   grid-template-columns: 60% 10% 20% 10%;
+}
+
+.ingredientsrow-item {
+  text-align: left;
+}
+
+.ingredientsrow-item-border {
+  border: 1px solid grey;
 }

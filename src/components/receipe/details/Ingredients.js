@@ -5,8 +5,12 @@ import IngredientsRow from './IngredientsRow'
 const Ingredients = ({ ingredients }) => {
   return (
     <div className="ingredients-main">
-      <div>Ingredients:</div>
-      <IngredientsRow name={'Name'} amount={'amount'} unit={'Units'} />
+      <IngredientsRow
+        name={'Name'}
+        amount={'amount'}
+        unit={'Units'}
+        className={'ingredientsrow-header'}
+      />
       {ingredients &&
         ingredients.map(ing => {
           return (

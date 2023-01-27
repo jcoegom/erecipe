@@ -70,10 +70,15 @@ const ReceipeDetails = ({ id, operation }) => {
     <>
       <div className="receipe-details-main">
         <div className="receipe-details-content">
-          <div>{store.selectedReceipe?.name}</div>
+          <div className="recipe-details-name">
+            {store.selectedReceipe?.name}
+          </div>
+          <div className="recipe-details-title">Ingredients:</div>
           <Ingredients ingredients={store.selectedReceipe?.ingredients} />
-          <div>Intructions:</div>
-          <div>{store.selectedReceipe?.instructions}</div>
+          <div className="recipe-details-title">Intructions:</div>
+          <div className="recipe-details-instructions">
+            {store.selectedReceipe?.instructions}
+          </div>
         </div>
       </div>
       <button onClick={_e => navigate('/search-receipe')}>Back</button>

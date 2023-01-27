@@ -1,7 +1,35 @@
 .receipe-details-main {
+  padding: 40px;
+  border-radius: 7px;
+  width: 300px;
+  text-align: center;
+}
+.receipe-details-content {
   background-color: white;
   padding: 40px;
   border-radius: 7px;
-  width: 250px;
+  width: 300px;
   text-align: center;
+}
+
+.recipe-details-name {
+  color: #1d3557;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+.recipe-details-title {
+  color: #1d3557;
+  font-size: 1.1em;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 7px;
+}
+
+.recipe-details-instructions {
+  text-align: left;
+}
+
+.ingredientsrow-header {
+  background-color: hsl(206deg 20% 92%);
 }
