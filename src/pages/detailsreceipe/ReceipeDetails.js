@@ -25,8 +25,6 @@ const ReceipeDetails = ({ id, operation }) => {
     },
   ] = useContext(StoreContext)
 
-  const [isCacheAvailable, setIsCacheAvailable] = useState(true)
-
   const [queryState, setQueryState] = useState(defaultQueryState)
 
   const searchDataById = async query => {
@@ -52,9 +50,6 @@ const ReceipeDetails = ({ id, operation }) => {
     }
     if ((operation && operation === 'refresh') || store.receipes.length === 0) {
       //get the data from server and update cache
-      if (store.receipes.length === 0) {
-        setIsCacheAvailable(false)
-      }
       searchDataById(`recipes/${id}`)
     } else {
       let receipeById = store.receipes.find(rec => String(rec.id) === id)

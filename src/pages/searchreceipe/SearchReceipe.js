@@ -71,6 +71,7 @@ const SearchReceipe = ({ operation }) => {
         <HeaderSearch
           content={
             <input
+              style={{ fontSize: '1.2em' }}
               defaultValue={store.textToSearch}
               ref={inputSearchRef}
               type="text"
