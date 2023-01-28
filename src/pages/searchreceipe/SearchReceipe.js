@@ -78,7 +78,14 @@ const SearchReceipe = ({ operation }) => {
               placeholder="Search..."
             />
           }
-          actions={<button onClick={_e => handleClickSearch()}>Search</button>}
+          actions={
+            <button
+              className="headersearch-responsive"
+              onClick={_e => handleClickSearch()}
+            >
+              Search
+            </button>
+          }
         />
         <Loading show={queryState.load}>
           <p>No results yet</p>

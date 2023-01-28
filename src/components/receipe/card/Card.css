@@ -48,3 +48,11 @@
   grid-template-columns: auto auto auto;
   justify-content: center;
 }
+
+@media (max-width: 600px) {
+  .card-container-main {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+}

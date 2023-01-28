@@ -3,3 +3,18 @@
   display: grid;
   grid-template-columns: 25% 40% 10% 25%;
 }
+
+@media (max-width: 600px) {
+  .header-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .headersearch-responsive {
+    margin-top: 15px;
+    width: 200px;
+    font-size: 1.7em;
+  }
+}
